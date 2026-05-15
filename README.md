@@ -1,4 +1,4 @@
-                                                                                        **Chillies SSO AI — v2.0.1**
+Chillies SSO AI — v2.0.1
 
 All-in-one SSO, CDN, AI, URL Rewriting, Cross-Posting, and Subdomain Management WordPress Plugin
 Author: Chillies Entertainment
