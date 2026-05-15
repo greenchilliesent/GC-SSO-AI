@@ -1,0 +1,446 @@
+/* Chillies SSO AI — Admin Styles
+   All colors/fonts/sizes are driven by CSS custom properties
+   set dynamically from the Appearance settings page.
+   ─────────────────────────────────────────────────────── */
+
+/* ── CSS variables (defaults overridden by inline style from PHP) ─── */
+:root {
+    --chillies-bg:      #0f172a;
+    --chillies-card:    #1e293b;
+    --chillies-accent:  #6366f1;
+    --chillies-text:    #e2e8f0;
+    --chillies-border:  #334155;
+    --chillies-radius:  8px;
+    --chillies-font:    'Inter', system-ui, sans-serif;
+    --chillies-font-size: 14px;
+    --chillies-accent-hover: #818cf8;
+    --chillies-danger:  #ef4444;
+    --chillies-success: #22c55e;
+    --chillies-warning: #f59e0b;
+    --chillies-muted:   #94a3b8;
+    --chillies-sidebar: #0f172a;
+}
+
+/* ── Wrapper ───────────────────────────────────────────── */
+#chillies-admin-wrap {
+    font-family: var(--chillies-font);
+    font-size:   var(--chillies-font-size);
+    color:       var(--chillies-text);
+    background:  var(--chillies-bg);
+    min-height:  calc(100vh - 32px);
+    margin-left: -20px;
+    padding:     0;
+}
+
+.chillies-content {
+    max-width: 1200px;
+    padding:   32px 36px;
+}
+
+/* ── Status bar ────────────────────────────────────────── */
+.chillies-status-bar {
+    display:         flex;
+    align-items:     center;
+    gap:             20px;
+    background:      var(--chillies-sidebar);
+    border-bottom:   1px solid var(--chillies-border);
+    padding:         10px 28px;
+    font-size:       13px;
+    position:        sticky;
+    top:             32px;
+    z-index:         100;
+    flex-wrap:       wrap;
+}
+
+.chillies-logo {
+    font-weight: 700;
+    font-size:   16px;
+    color:       var(--chillies-accent);
+    letter-spacing: -.3px;
+}
+.chillies-logo small {
+    font-size:  11px;
+    color:      var(--chillies-muted);
+    font-weight: 400;
+}
+
+.chillies-status-item {
+    display:     flex;
+    align-items: center;
+    gap:         5px;
+    padding:     4px 10px;
+    border-radius: 999px;
+    font-size:   12px;
+    font-weight: 600;
+}
+.status-on  { background: rgba(34,197,94,.15); color: var(--chillies-success); }
+.status-off { background: rgba(148,163,184,.1); color: var(--chillies-muted);  }
+
+/* ── Page title ────────────────────────────────────────── */
+.chillies-page-title {
+    font-size:   22px;
+    font-weight: 700;
+    color:       var(--chillies-text);
+    margin:      0 0 24px;
+    display:     flex;
+    align-items: center;
+    gap:         10px;
+}
+.chillies-page-title .dashicons {
+    color:       var(--chillies-accent);
+    font-size:   24px;
+    width:       24px;
+    height:      24px;
+}
+
+/* ── Card ──────────────────────────────────────────────── */
+.chillies-card {
+    background:    var(--chillies-card);
+    border:        1px solid var(--chillies-border);
+    border-radius: var(--chillies-radius);
+    padding:       24px;
+    margin-bottom: 20px;
+}
+.chillies-card h3 {
+    font-size:   15px;
+    font-weight: 600;
+    color:       var(--chillies-text);
+    margin:      0 0 16px;
+    display:     flex;
+    align-items: center;
+    gap:         7px;
+}
+.chillies-card h3 .dashicons {
+    color: var(--chillies-accent);
+}
+
+/* ── Stats grid ────────────────────────────────────────── */
+.chillies-stats-grid {
+    display:               grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap:                   16px;
+}
+
+.chillies-stat-card {
+    background:    var(--chillies-card);
+    border:        1px solid var(--chillies-border);
+    border-radius: var(--chillies-radius);
+    padding:       22px 20px;
+    display:       flex;
+    align-items:   center;
+    gap:           16px;
+    transition:    border-color .2s;
+}
+.chillies-stat-card:hover { border-color: var(--chillies-accent); }
+
+.chillies-stat-icon {
+    font-size: 32px !important;
+    width:     32px !important;
+    height:    32px !important;
+    color:     var(--chillies-accent) !important;
+    flex-shrink: 0;
+}
+.chillies-stat-num   { font-size: 28px; font-weight: 700; color: var(--chillies-text); line-height: 1; }
+.chillies-stat-label { font-size: 12px; color: var(--chillies-muted); margin-top: 4px; }
+
+/* ── Buttons ───────────────────────────────────────────── */
+.chillies-btn {
+    display:         inline-flex;
+    align-items:     center;
+    gap:             6px;
+    background:      var(--chillies-accent);
+    color:           #fff;
+    border:          none;
+    border-radius:   var(--chillies-radius);
+    padding:         9px 18px;
+    font-size:       13px;
+    font-weight:     600;
+    font-family:     var(--chillies-font);
+    cursor:          pointer;
+    text-decoration: none;
+    transition:      background .2s, transform .1s;
+}
+.chillies-btn:hover   { background: var(--chillies-accent-hover); color: #fff; }
+.chillies-btn:active  { transform: scale(.97); }
+
+.chillies-btn-secondary {
+    background: transparent;
+    border:     1px solid var(--chillies-border);
+    color:      var(--chillies-text);
+}
+.chillies-btn-secondary:hover {
+    border-color: var(--chillies-accent);
+    color:        var(--chillies-accent);
+    background:   transparent;
+}
+
+.chillies-btn-sm {
+    display:         inline-flex;
+    align-items:     center;
+    gap:             4px;
+    background:      rgba(99,102,241,.15);
+    color:           var(--chillies-accent);
+    border:          1px solid var(--chillies-border);
+    border-radius:   calc(var(--chillies-radius) - 2px);
+    padding:         5px 11px;
+    font-size:       12px;
+    font-weight:     600;
+    cursor:          pointer;
+    transition:      background .15s;
+    font-family:     var(--chillies-font);
+}
+.chillies-btn-sm:hover { background: rgba(99,102,241,.3); }
+
+.chillies-btn-danger,
+.chillies-btn-danger:hover {
+    background: rgba(239,68,68,.15);
+    color:      var(--chillies-danger);
+    border-color: rgba(239,68,68,.3);
+}
+.chillies-btn-danger:hover { background: rgba(239,68,68,.3); }
+
+/* ── Forms ─────────────────────────────────────────────── */
+.chillies-form-grid {
+    display:               grid;
+    grid-template-columns: 1fr 1fr;
+    gap:                   16px;
+    margin-bottom:         16px;
+}
+@media (max-width: 768px) { .chillies-form-grid { grid-template-columns: 1fr; } }
+
+.chillies-field-group {
+    display:       flex;
+    flex-direction:column;
+    gap:           5px;
+}
+.chillies-field-group label {
+    font-size:   12px;
+    font-weight: 600;
+    color:       var(--chillies-muted);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+.chillies-field-group input[type="text"],
+.chillies-field-group input[type="url"],
+.chillies-field-group input[type="email"],
+.chillies-field-group input[type="password"],
+.chillies-field-group input[type="number"],
+.chillies-field-group textarea,
+.chillies-field-group select,
+select, input[type="text"], input[type="url"],
+input[type="password"], input[type="number"],
+input[type="email"], textarea {
+    background:    var(--chillies-bg) !important;
+    color:         var(--chillies-text) !important;
+    border:        1px solid var(--chillies-border) !important;
+    border-radius: var(--chillies-radius) !important;
+    padding:       8px 12px !important;
+    font-size:     var(--chillies-font-size) !important;
+    font-family:   var(--chillies-font) !important;
+    width:         100%;
+    box-sizing:    border-box;
+    transition:    border-color .15s;
+}
+.chillies-field-group input:focus,
+.chillies-field-group textarea:focus,
+.chillies-field-group select:focus {
+    border-color: var(--chillies-accent) !important;
+    outline:      none !important;
+    box-shadow:   0 0 0 3px rgba(99,102,241,.2) !important;
+}
+.chillies-field-group small { font-size: 11px; color: var(--chillies-muted); }
+
+/* ── Tables ─────────────────────────────────────────────── */
+.chillies-table.widefat {
+    background:    var(--chillies-card) !important;
+    border:        1px solid var(--chillies-border) !important;
+    border-radius: var(--chillies-radius);
+    overflow:      hidden;
+    border-collapse: collapse;
+    width:         100%;
+}
+.chillies-table th {
+    background:  rgba(0,0,0,.3) !important;
+    color:       var(--chillies-muted) !important;
+    font-size:   11px !important;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    padding:     10px 14px !important;
+    border-bottom: 1px solid var(--chillies-border) !important;
+}
+.chillies-table td {
+    color:       var(--chillies-text) !important;
+    padding:     10px 14px !important;
+    border-bottom: 1px solid rgba(51,65,85,.5) !important;
+    vertical-align: middle;
+}
+.chillies-table tr:last-child td { border-bottom: none !important; }
+.chillies-table tr:hover td     { background: rgba(255,255,255,.03) !important; }
+
+/* ── Status badges ──────────────────────────────────────── */
+.chillies-status-badge {
+    display:       inline-flex;
+    align-items:   center;
+    gap:           4px;
+    padding:       3px 10px;
+    border-radius: 999px;
+    font-size:     11px;
+    font-weight:   600;
+}
+.status-active   { background: rgba(34,197,94,.15);  color: var(--chillies-success); }
+.status-inactive { background: rgba(148,163,184,.1); color: var(--chillies-muted);  }
+.status-checking { background: rgba(245,158,11,.1);  color: var(--chillies-warning); }
+.status-online   { background: rgba(34,197,94,.15);  color: var(--chillies-success); }
+.status-offline  { background: rgba(239,68,68,.15);  color: var(--chillies-danger);  }
+.status-error    { background: rgba(239,68,68,.15);  color: var(--chillies-danger);  }
+
+/* ── Toggle switches ────────────────────────────────────── */
+.chillies-toggle-grid {
+    display:               grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap:                   12px;
+}
+.chillies-toggle-label {
+    display:       flex;
+    align-items:   center;
+    gap:           10px;
+    background:    var(--chillies-bg);
+    border:        1px solid var(--chillies-border);
+    border-radius: var(--chillies-radius);
+    padding:       12px 14px;
+    cursor:        pointer;
+    font-weight:   500;
+    transition:    border-color .15s;
+    position:      relative;
+}
+.chillies-toggle-label:hover { border-color: var(--chillies-accent); }
+.chillies-toggle-label input[type="checkbox"] {
+    position: absolute;
+    opacity:  0;
+    width:    0;
+    height:   0;
+}
+.chillies-toggle-slider {
+    margin-left:   auto;
+    position:      relative;
+    width:         40px;
+    height:        22px;
+    background:    var(--chillies-border);
+    border-radius: 999px;
+    transition:    background .2s;
+    flex-shrink:   0;
+}
+.chillies-toggle-slider::after {
+    content:       '';
+    position:      absolute;
+    width:         16px;
+    height:        16px;
+    border-radius: 50%;
+    background:    #fff;
+    top:           3px;
+    left:          3px;
+    transition:    transform .2s;
+}
+.chillies-toggle-label input:checked ~ .chillies-toggle-slider {
+    background: var(--chillies-accent);
+}
+.chillies-toggle-label input:checked ~ .chillies-toggle-slider::after {
+    transform: translateX(18px);
+}
+
+/* ── Color grid ─────────────────────────────────────────── */
+.chillies-color-grid {
+    display:               grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap:                   16px;
+}
+.chillies-color-field label {
+    display:     block;
+    font-size:   12px;
+    font-weight: 600;
+    color:       var(--chillies-muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+.wp-picker-container .wp-color-result {
+    border: 1px solid var(--chillies-border) !important;
+    border-radius: var(--chillies-radius) !important;
+}
+
+/* ── Checkbox grid ──────────────────────────────────────── */
+.chillies-checkbox-grid {
+    display:               grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+    gap:                   8px;
+    padding:               12px;
+    background:            var(--chillies-bg);
+    border:                1px solid var(--chillies-border);
+    border-radius:         var(--chillies-radius);
+    max-height:            220px;
+    overflow-y:            auto;
+}
+.chillies-checkbox-label {
+    display:     flex;
+    align-items: center;
+    gap:         8px;
+    font-size:   13px;
+    cursor:      pointer;
+}
+.chillies-checkbox-label:hover { color: var(--chillies-accent); }
+
+/* ── Template grid ──────────────────────────────────────── */
+.chillies-template-grid {
+    display:               grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap:                   16px;
+}
+.chillies-template-card {
+    display:       flex;
+    flex-direction:column;
+    align-items:   center;
+    gap:           10px;
+    background:    var(--chillies-bg);
+    border:        2px solid var(--chillies-border);
+    border-radius: var(--chillies-radius);
+    padding:       24px 20px;
+    text-align:    center;
+    transition:    border-color .2s;
+}
+.chillies-template-card:hover { border-color: var(--chillies-accent); }
+.chillies-template-card .dashicons { color: var(--chillies-accent); }
+.chillies-template-card code {
+    font-size:   11px;
+    color:       var(--chillies-muted);
+    word-break:  break-all;
+}
+
+/* ── WP admin overrides for sidebar consistency ──────────── */
+#adminmenu .wp-has-current-submenu .wp-submenu-head,
+#adminmenu .wp-menu-arrow div {
+    background: var(--chillies-accent) !important;
+}
+
+/* ── Spinner ─────────────────────────────────────────────── */
+@keyframes chillies-spin { to { transform: rotate(360deg); } }
+.chillies-spin { animation: chillies-spin 1s linear infinite; display: inline-block; }
+
+/* ── WP Settings errors ──────────────────────────────────── */
+.notice.notice-success,
+.notice.notice-error,
+.updated,
+.error {
+    background:  var(--chillies-card) !important;
+    border-left: 4px solid var(--chillies-accent) !important;
+    color:       var(--chillies-text) !important;
+    box-shadow:  none !important;
+}
+.notice.notice-error,
+.error {
+    border-left-color: var(--chillies-danger) !important;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+#chillies-admin-wrap ::-webkit-scrollbar       { width: 6px; height: 6px; }
+#chillies-admin-wrap ::-webkit-scrollbar-track { background: var(--chillies-bg); }
+#chillies-admin-wrap ::-webkit-scrollbar-thumb { background: var(--chillies-border); border-radius: 3px; }
