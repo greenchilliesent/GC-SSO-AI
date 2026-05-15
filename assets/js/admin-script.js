@@ -319,13 +319,26 @@
                 $('#chillies-new-key-display').show();
                 spinner(btn, false);
                 // Add to table
-                $('#chillies-api-keys-table tbody tr:last').before(
-                    '<tr><td>' + $('<d>').text(label).html() + '</td>' +
-                    '<td><code>' + data.key.substring(0, 12) + '...</code></td>' +
-                    '<td>0</td><td>' + rate + '</td><td>Just now</td>' +
-                    '<td><button class="chillies-btn-sm chillies-btn-danger chillies-revoke-apikey" data-id="new">' +
-                    '<span class="dashicons dashicons-trash"></span> Revoke</button></td></tr>'
+                var keyPreview = data.key.substring(0, 12) + '...',
+                    row = $('<tr>');
+
+                row.append($('<td>').text(label));
+                row.append($('<td>').append($('<code>').text(keyPreview)));
+                row.append($('<td>').text('0'));
+                row.append($('<td>').text(rate));
+                row.append($('<td>').text('Just now'));
+                row.append(
+                    $('<td>').append(
+                        $('<button>', {
+                            'class': 'chillies-btn-sm chillies-btn-danger chillies-revoke-apikey',
+                            'data-id': 'new'
+                        })
+                            .append($('<span>', { 'class': 'dashicons dashicons-trash' }))
+                            .append(' Revoke')
+                    )
                 );
+
+                $('#chillies-api-keys-table tbody tr:last').before(row);
             },
             function (msg) { alert(msg); spinner(btn, false); }
         );
