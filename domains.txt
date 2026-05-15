@@ -1,0 +1,9 @@
+www.greenchilliesent.com
+auth.greenchilliesent.com
+cdn.greenchilliesent.com
+shop.greenchilliesent.com
+blog.greenchilliesent.com
+web.greenchilliesent.com
+about.greenchilliesent.com
+dev.greenchilliesent.com
+edu.greenchilliesent.com
